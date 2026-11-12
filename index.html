@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpAn | Sports Motion Analysis</title>
+  <meta name="description" content="SpAn (Sports Analysis) uses your camera and a trained model to analyse your movement and give personalised feedback.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <a class="logo" href="#top">Sp<span>An</span></a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#start">Get started</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#training">Training</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Sports Analysis &middot; SpAn</p>
+        <h1>Sports Motion Analysis</h1>
+        <p class="lead">
+          Point your camera at your movement. SpAn runs it through a trained model and
+          gives you personalised suggestions to improve, based on your body and your
+          physical abilities.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#start">Get started</a>
+          <a class="btn ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 320 380" role="img">
+          <!-- simple shooting-form skeleton -->
+          <g stroke="#f5f7fb" stroke-width="5" stroke-linecap="round" fill="none">
+            <line x1="150" y1="70" x2="150" y2="170"/>   <!-- torso -->
+            <line x1="150" y1="90" x2="205" y2="70"/>    <!-- upper arm -->
+            <line x1="205" y1="70" x2="215" y2="20"/>    <!-- forearm -->
+            <line x1="150" y1="90" x2="105" y2="105"/>   <!-- off arm -->
+            <line x1="150" y1="170" x2="185" y2="245"/>  <!-- thigh -->
+            <line x1="185" y1="245" x2="165" y2="330"/>  <!-- shin -->
+            <line x1="150" y1="170" x2="115" y2="245"/>
+            <line x1="115" y1="245" x2="130" y2="330"/>
+          </g>
+          <circle cx="150" cy="45" r="22" fill="none" stroke="#f5f7fb" stroke-width="5"/>
+          <!-- elbow angle arc -->
+          <path d="M 188 76 A 20 20 0 0 1 206 92" stroke="#ff7a1a" stroke-width="4" fill="none"/>
+          <text x="226" y="100" fill="#ff7a1a" font-size="16" font-weight="700">elbow</text>
+          <!-- joints -->
+          <g fill="#ff7a1a">
+            <circle cx="150" cy="90" r="7"/><circle cx="205" cy="70" r="7"/>
+            <circle cx="215" cy="20" r="7"/><circle cx="105" cy="105" r="7"/>
+            <circle cx="150" cy="170" r="7"/><circle cx="185" cy="245" r="7"/>
+            <circle cx="165" cy="330" r="7"/><circle cx="115" cy="245" r="7"/>
+            <circle cx="130" cy="330" r="7"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
+      <h2>How it works</h2>
+      <p class="section-sub">Four steps from first open to personalised feedback.</p>
+      <div class="grid four">
+        <article class="card">
+          <span class="num">1</span>
+          <h3>Enter your profile</h3>
+          <p>Tell us your height, wingspan, weight and vertical jump.</p>
+        </article>
+        <article class="card">
+          <span class="num">2</span>
+          <h3>Get paired</h3>
+          <p>We match you with a sample basketball player with a similar build.</p>
+        </article>
+        <article class="card">
+          <span class="num">3</span>
+          <h3>Explore your dashboard</h3>
+          <p>Watch their game videos and study their shooting form.</p>
+        </article>
+        <article class="card">
+          <span class="num">4</span>
+          <h3>Train and compare</h3>
+          <p>Record yourself and see how your form compares, with tips to improve.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- STEP 0/1: NEW USER START -->
+    <section id="start" class="section alt">
+      <div class="split">
+        <div>
+          <h2>Welcome. Let's set up your profile.</h2>
+          <p class="section-sub left">
+            New here? Start with a few basic measurements. SpAn uses them to
+            personalise your feedback and choose a sample player to learn from.
+          </p>
+          <div id="summary" class="summary" hidden></div>
+        </div>
+
+        <form id="profile-form" class="form" novalidate>
+          <label>Height (cm)
+            <input type="number" name="height" min="100" max="250" step="0.1" placeholder="e.g. 185" required>
+          </label>
+          <label>Wingspan (cm)
+            <input type="number" name="wingspan" min="100" max="270" step="0.1" placeholder="e.g. 192" required>
+          </label>
+          <label>Weight (kg)
+            <input type="number" name="weight" min="30" max="200" step="0.1" placeholder="e.g. 78" required>
+          </label>
+          <label>Vertical jump (cm)
+            <input type="number" name="vertical" min="0" max="150" step="0.1" placeholder="e.g. 60" required>
+          </label>
+          <p id="form-error" class="error" role="alert" hidden></p>
+          <button class="btn primary" type="submit">Save and continue</button>
+          <p class="fine">Your details stay on this device for now.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- STEP 2: PAIRING -->
+    <section id="pairing" class="section">
+      <h2>Your sample player</h2>
+      <p class="section-sub">After your profile is saved, SpAn pairs you with a sample basketball player from:</p>
+      <div class="grid three">
+        <article class="card"><h3>PE Society</h3><p>Form and technique reference from our physical education partners.</p></article>
+        <article class="card"><h3>Basketball Squad</h3><p>Players from our own squad to learn from.</p></article>
+        <article class="card"><h3>Professional Basketball Players</h3><p>Elite examples of shooting mechanics.</p></article>
+      </div>
+    </section>
+
+    <!-- STEP 3: DASHBOARD -->
+    <section id="dashboard" class="section alt">
+      <h2>Your dashboard</h2>
+      <p class="section-sub">Everything about your sample player in one place.</p>
+      <div class="grid three">
+        <article class="card"><div class="thumb">Video</div><h3>Game videos</h3><p>Watch real game footage of your matched player.</p></article>
+        <article class="card"><div class="thumb">Form</div><h3>Shooting form</h3><p>Break down their mechanics frame by frame.</p></article>
+        <article class="card"><div class="thumb">More</div><h3>And more</h3><p>Additional insights and resources coming soon.</p></article>
+      </div>
+    </section>
+
+    <!-- STEP 4: TRAINING -->
+    <section id="training" class="section">
+      <h2>Training: compare your shooting form</h2>
+      <p class="section-sub">Your camera input is compared against your sample player across five areas.</p>
+      <ul class="metrics">
+        <li><strong>Arm position and elbow angle</strong></li>
+        <li><strong>Knee bend and leg extension</strong></li>
+        <li><strong>Body alignment</strong></li>
+        <li><strong>Jump height and release timing</strong></li>
+        <li><strong>Follow-through</strong></li>
+      </ul>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section alt">
+      <h2>About SpAn</h2>
+      <p class="section-sub">
+        The goal is to help athletes optimise their performance through feedback
+        personalised to their attributes and physical abilities.
+      </p>
+      <div class="grid two">
+        <article class="card">
+          <h3>CS Society</h3>
+          <p>Led by <strong>Seoha David Kim</strong></p>
+        </article>
+        <article class="card">
+          <h3>PE Society</h3>
+          <p>Led by <strong>Jianyuan Max Ma</strong></p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> SpAn &middot; Sports Motion Analysis &middot; CS Society &amp; PE Society</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
