@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join | SpAn</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/signup.css">
+</head>
+<body class="theme-light">
+  <div class="split-page">
+
+    <aside class="side theme-dark">
+      <a class="logo" href="index.html" aria-label="SpAn home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>SpAn</span>
+      </a>
+      <div class="side-copy">
+        <h2 id="side-title">Let's get you set up.</h2>
+        <p id="side-sub">Two quick steps. It takes less than a minute.</p>
+      </div>
+      <div class="side-fig" aria-hidden="true">
+        <svg id="side-figure" role="img"></svg>
+      </div>
+    </aside>
+
+    <main class="form-side theme-light">
+      <form id="signup-form" class="panel" novalidate>
+        <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+        <!-- Step 1: account -->
+        <section class="step-panel" id="step-1">
+          <h1>Join SpAn</h1>
+          <div class="fields">
+            <label class="field">Name
+              <input type="text" name="name" autocomplete="name" placeholder="Your name" maxlength="60" required>
+            </label>
+            <label class="field">Email
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="120" required>
+            </label>
+          </div>
+          <p class="error" id="error-1" role="alert"></p>
+          <button class="btn primary block" type="submit">Continue <span class="arrow" aria-hidden="true">&rarr;</span></button>
+        </section>
+
+        <!-- Step 2: stats -->
+        <section class="step-panel" id="step-2" hidden>
+          <button class="back" type="button" id="back" aria-label="Back to step 1">&larr; Back</button>
+          <h1>Your stats</h1>
+          <div class="fields two">
+            <label class="field">Height (cm)
+              <input type="number" name="height" min="100" max="250" step="0.1" inputmode="decimal" placeholder="185" required>
+            </label>
+            <label class="field">Wingspan (cm)
+              <input type="number" name="wingspan" min="100" max="270" step="0.1" inputmode="decimal" placeholder="192" required>
+            </label>
+            <label class="field">Weight (kg)
+              <input type="number" name="weight" min="30" max="200" step="0.1" inputmode="decimal" placeholder="78" required>
+            </label>
+            <label class="field">Vertical jump (cm)
+              <input type="number" name="vertical" min="0" max="150" step="0.1" inputmode="decimal" placeholder="60" required>
+            </label>
+          </div>
+          <div class="ratio" id="ratio" aria-live="polite">
+            <span class="ratio-label">Wingspan-to-height</span>
+            <span class="ratio-value" id="ratio-value">&ndash;</span>
+            <div class="ratio-track"><i id="ratio-dot"></i></div>
+          </div>
+          <p class="error" id="error-2" role="alert"></p>
+          <button class="btn primary block" type="submit">Create profile <span class="arrow" aria-hidden="true">&rarr;</span></button>
+        </section>
+
+        <!-- Success -->
+        <section class="step-panel done" id="step-done" hidden>
+          <svg class="check" viewBox="0 0 52 52" aria-hidden="true">
+            <circle cx="26" cy="26" r="24" fill="none" stroke="#0071e3" stroke-width="2.5"/>
+            <path d="M15 27 l7 7 l15 -16" fill="none" stroke="#0071e3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h1>You're in.</h1>
+          <p class="done-sub">Finding your sample player&hellip;</p>
+        </section>
+      </form>
+    </main>
+
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pose.js"></script>
+  <script src="js/signup.js"></script>
+</body>
+</html>

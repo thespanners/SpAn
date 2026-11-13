@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | SpAn</title>
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="theme-light">
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html" aria-label="SpAn home">
+        <img src="favicon.svg" alt="" width="26" height="26">
+        <span>SpAn</span>
+      </a>
+      <button class="nav-link signout" id="signout" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <main class="dash">
+    <div class="welcome">
+      <h1 id="welcome">Welcome</h1>
+      <p id="welcome-sub"></p>
+    </div>
+
+    <div class="cols">
+
+      <!-- COLUMN 1: you -->
+      <div class="col">
+        <section class="card reveal" data-delay="0">
+          <h2>Your profile</h2>
+          <div class="stats">
+            <div class="stat"><span class="stat-v"><b id="s-height">0</b><small>cm</small></span><span class="stat-l">Height</span></div>
+            <div class="stat"><span class="stat-v"><b id="s-wingspan">0</b><small>cm</small></span><span class="stat-l">Wingspan</span></div>
+            <div class="stat"><span class="stat-v"><b id="s-weight">0</b><small>kg</small></span><span class="stat-l">Weight</span></div>
+            <div class="stat"><span class="stat-v"><b id="s-vertical">0</b><small>cm</small></span><span class="stat-l">Vertical</span></div>
+          </div>
+          <p class="ratio-line">Wingspan-to-height <b id="s-ratio">&ndash;</b></p>
+        </section>
+
+        <section class="card reveal" data-delay="100">
+          <h2>You vs <span id="cmp-name">match</span></h2>
+          <div class="cmp" id="cmp"></div>
+          <div class="legend"><span><i class="you"></i>You</span><span><i class="them"></i><span id="cmp-legend-name">Match</span></span></div>
+        </section>
+
+        <section class="card reveal" data-delay="200">
+          <h2>Starter tips</h2>
+          <ul class="tips" id="tips"></ul>
+        </section>
+      </div>
+
+      <!-- COLUMN 2: match + form -->
+      <div class="col">
+        <section class="card match reveal" data-delay="60">
+          <div class="avatar" id="m-avatar">--</div>
+          <div class="match-info">
+            <h2 id="m-name">&ndash;</h2>
+            <p><span class="tag" id="m-source"></span><span id="m-build"></span></p>
+          </div>
+          <div class="ring" title="How closely your build matches">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="26" class="ring-bg"/>
+              <circle cx="32" cy="32" r="26" class="ring-fg" id="ring-fg"/>
+            </svg>
+            <span class="ring-num"><b id="m-score">0</b>%</span>
+          </div>
+        </section>
+
+        <section class="card form-card theme-dark reveal" data-delay="160">
+          <div class="card-head">
+            <h2>Shooting form</h2>
+            <span class="phase-chip" id="f-phase">Set</span>
+          </div>
+          <div class="figure-wrap"><svg id="figure" role="img" aria-label="Animated shooting form skeleton"></svg></div>
+          <div class="scrub">
+            <input type="range" id="scrub" min="0" max="100" value="0" step="1" aria-label="Scrub through the shooting motion">
+            <div class="scrub-labels"><span>Set</span><span>Load</span><span>Release</span><span>Follow</span></div>
+          </div>
+          <div class="readouts">
+            <div><span>Elbow</span><b id="r-elbow">&ndash;</b></div>
+            <div><span>Knee</span><b id="r-knee">&ndash;</b></div>
+          </div>
+          <p class="hint" id="scrub-hint">Drag to scrub through the shot</p>
+        </section>
+      </div>
+
+      <!-- COLUMN 3: training + videos -->
+      <div class="col">
+        <section class="card reveal" data-delay="120">
+          <div class="card-head">
+            <h2>Training</h2>
+            <span class="status"><i></i>Awaiting first session</span>
+          </div>
+          <ul class="areas-list">
+            <li><span>Arm position and elbow angle</span><em><i></i></em></li>
+            <li><span>Knee bend and leg extension</span><em><i></i></em></li>
+            <li><span>Body alignment</span><em><i></i></em></li>
+            <li><span>Jump height and release timing</span><em><i></i></em></li>
+            <li><span>Follow-through</span><em><i></i></em></li>
+          </ul>
+          <p class="note">Camera comparison appears here once the model is connected.</p>
+        </section>
+
+        <section class="card theme-dark reveal" data-delay="220">
+          <div class="card-head">
+            <h2>Game videos</h2>
+            <span class="status soon">Soon</span>
+          </div>
+          <div class="clips">
+            <div class="clip"><span></span></div>
+            <div class="clip"><span></span></div>
+            <div class="clip"><span></span></div>
+          </div>
+          <p class="note">Footage of <span id="clip-name">your match</span> will play here.</p>
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/pose.js"></script>
+  <script src="js/players.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
