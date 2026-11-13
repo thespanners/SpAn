@@ -1,6 +1,26 @@
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Scroll-reveal animations
+document.documentElement.classList.add("js");
+const revealEls = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 60 + "ms";
+    io.observe(el);
+  });
+} else {
+  revealEls.forEach((el) => el.classList.add("in"));
+}
+
 const form = document.getElementById("profile-form");
 const errorBox = document.getElementById("form-error");
 const summary = document.getElementById("summary");
