@@ -1,4 +1,4 @@
-/* Launch page: live stage, scroll-linked stage scale, and the scroll-highlighted areas list. */
+/* Launch page: live stage, film preview, scroll-linked stage scale, and the scroll-highlighted areas list. */
 (function () {
   const S = window.SpAn;
   const $ = (id) => document.getElementById(id);
@@ -8,6 +8,10 @@
   const figure = S.Pose.createFigure($("hero-figure"), { labels: false });
   const phases = document.querySelectorAll("#hero-phases li");
   let last = -1;
+
+  // Preview of the (coming soon) video analysis: same skeleton, drawn like a tracked clip
+  const filmSvg = $("film-figure");
+  const film = filmSvg ? S.Pose.createFigure(filmSvg, { labels: false }) : null;
 
   S.Pose.loop(function (t) {
     const pose = S.Pose.poseAt(t);
@@ -22,6 +26,12 @@
     $("mt-knee").style.width = (out.knee / 180 * 100) + "%";
     $("mt-align").style.width = Math.min(100, tilt / 8 * 100) + "%";
     $("mt-phase").style.width = (t * 100) + "%";
+
+    if (film) {
+      const o2 = film.update(pose);
+      $("f-elbow").textContent = Math.round(o2.elbow) + "°";
+      $("f-knee").textContent = Math.round(o2.knee) + "°";
+    }
 
     const idx = Math.round(t * (phases.length - 1));
     if (idx !== last) {

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
     <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7dd3fc"/>
-      <stop offset="1" stop-color="#4f6bff"/>
+      <stop offset="0" stop-color="#ffb800"/>
+      <stop offset="1" stop-color="#ff5a1f"/>
     </linearGradient>
     <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
       <rect width="64" height="64" fill="#fff"/>
@@ -12,7 +12,7 @@
       <polygon points="20,41.2 23.6,43.3 23.6,47.5 20,49.6 16.4,47.5 16.4,43.3" fill="#000"/>
     </mask>
   </defs>
-  <rect width="64" height="64" rx="15" fill="#0a1020"/>
+  <rect width="64" height="64" rx="15" fill="#0a0a0a"/>
   <rect x="1.5" y="1.5" width="61" height="61" rx="13.5" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width="3"/>
   <g mask="url(#cut)" fill="url(#g)" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round">
     <path d="M42 19 C21 15 17 30 32 32 C47 34 43 47 21 46" fill="none" stroke-width="6"/>

@@ -5,13 +5,13 @@
  */
 (function () {
   const PLAYERS = [
-    { id: "pe-01",  name: "p1",     source: "PE Society",       height: 172, wingspan: 176, weight: 64, vertical: 52 },
-    { id: "pe-02",  name: "p2",    source: "PE Society",       height: 165, wingspan: 168, weight: 58, vertical: 48 },
-    { id: "sq-01",  name: "s1",      source: "Basketball Squad", height: 181, wingspan: 186, weight: 74, vertical: 61 },
-    { id: "sq-02",  name: "s2",      source: "Basketball Squad", height: 188, wingspan: 195, weight: 82, vertical: 68 },
-    { id: "pro-01", name: "pr1",  source: "Professional",     height: 193, wingspan: 202, weight: 88, vertical: 74 },
-    { id: "pro-02", name: "pr2",   source: "Professional",     height: 201, wingspan: 211, weight: 97, vertical: 79 },
-    { id: "pro-03", name: "pr3",      source: "Professional",     height: 178, wingspan: 183, weight: 72, vertical: 70 },
+    { id: "pe-01",  name: "Jin Park",     source: "PE Society",       height: 172, wingspan: 176, weight: 64, vertical: 52 },
+    { id: "pe-02",  name: "Hana Choi",    source: "PE Society",       height: 165, wingspan: 168, weight: 58, vertical: 48 },
+    { id: "sq-01",  name: "Min Lee",      source: "Basketball Squad", height: 181, wingspan: 186, weight: 74, vertical: 61 },
+    { id: "sq-02",  name: "Tae Kim",      source: "Basketball Squad", height: 188, wingspan: 195, weight: 82, vertical: 68 },
+    { id: "pro-01", name: "Alex Moreno",  source: "Professional",     height: 193, wingspan: 202, weight: 88, vertical: 74 },
+    { id: "pro-02", name: "Sam Okafor",   source: "Professional",     height: 201, wingspan: 211, weight: 97, vertical: 79 },
+    { id: "pro-03", name: "Dev Rao",      source: "Professional",     height: 178, wingspan: 183, weight: 72, vertical: 70 },
   ];
 
   // Typical spread of each stat, used so no single unit dominates the distance.

@@ -56,7 +56,7 @@
     setTimeout(() => { window.location.href = url; }, 280);
   };
 
-  // Launch page nav: returning members see "Dashboard" instead of "Sign up"
+  // Launch page nav: returning members see "Dashboard" instead of "Join"
   const cta = document.getElementById("nav-cta");
   if (cta && S.Storage && S.Storage.getUser()) {
     cta.textContent = "Dashboard";

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SpAn | Sports Motion Analysis</title>
   <meta name="description" content="SpAn (Sports Analysis) uses your camera and a trained model to analyse your movement and give personalised feedback.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800&family=Caveat:wght@600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/launch.css">
 </head>
@@ -22,7 +22,7 @@
         <img src="favicon.svg" alt="" width="26" height="26">
         <span>SpAn</span>
       </a>
-      <a id="nav-cta" class="btn primary small" href="signup.html">Sign up</a>
+      <a id="nav-cta" class="btn primary small" href="signup.html">Join</a>
     </div>
   </header>
 
@@ -30,6 +30,7 @@
 
     <!-- HERO -->
     <section class="hero theme-dark">
+      <div class="doodles" id="doodles" aria-hidden="true"></div>
       <p class="eyebrow">Sports Analysis</p>
       <h1>Sports motion analysis.<br><span class="grad">Made personal.</span></h1>
       <p class="lead">
@@ -55,6 +56,14 @@
         </div>
       </div>
     </section>
+
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Film it</span><span>Track it</span><span>Fix it</span><span>Film it</span><span>Track it</span><span>Fix it</span>
+        <span>Film it</span><span>Track it</span><span>Fix it</span><span>Film it</span><span>Track it</span><span>Fix it</span>
+      </div>
+    </div>
 
     <!-- HOW IT WORKS -->
     <section class="section theme-light">
@@ -123,12 +132,49 @@
       </div>
     </section>
 
+    <!-- FILM YOURSELF (coming soon) -->
+    <section class="section theme-dark film" id="film">
+      <div class="film-grid">
+        <div class="cam reveal" aria-hidden="true">
+          <div class="cam-bar">
+            <span class="rec"><i></i>Rec</span>
+            <span class="cam-tag">Preview</span>
+          </div>
+          <div class="cam-view">
+            <svg id="film-figure" role="img"></svg>
+            <span class="scan"></span>
+            <i class="br tl"></i><i class="br tr"></i><i class="br bl"></i><i class="br brr"></i>
+          </div>
+          <div class="cam-foot">
+            <span>Joints <b>10 / 10</b></span>
+            <span>Elbow <b id="f-elbow">&ndash;</b></span>
+            <span>Knee <b id="f-knee">&ndash;</b></span>
+          </div>
+        </div>
+
+        <div class="film-copy">
+          <p class="kicker reveal">Film <span class="soon-tag">Coming soon</span></p>
+          <h2 class="reveal">Film yourself.<br>We read your posture.</h2>
+          <p class="section-sub reveal">
+            Soon you will film a short clip of your shot. A trained model tracks your body frame by frame
+            and checks your posture against your sample player.
+          </p>
+          <ol class="film-steps">
+            <li class="reveal" data-delay="0"><b>01</b><div><h3>Film</h3><p>Record a short side-on clip. A phone camera is enough.</p></div></li>
+            <li class="reveal" data-delay="100"><b>02</b><div><h3>Track</h3><p>The model finds your joints in every frame.</p></div></li>
+            <li class="reveal" data-delay="200"><b>03</b><div><h3>Fix</h3><p>See what to change first, with tips matched to your build.</p></div></li>
+          </ol>
+          <button class="btn primary" type="button" disabled>Upload a clip &middot; Soon</button>
+        </div>
+      </div>
+    </section>
+
     <!-- FIVE AREAS -->
-    <section class="section theme-dark areas">
+    <section class="section theme-hot areas">
       <div class="section-head">
         <p class="kicker reveal">Training</p>
         <h2 class="reveal">Five areas, compared.</h2>
-        <p class="section-sub reveal">Your camera input is measured against your sample player.</p>
+        <p class="section-sub reveal">Your camera input is measured against your sample player. Tap a line to see what we look at.</p>
       </div>
       <ol class="areas-list" id="areas">
         <li><span class="n">01</span><span class="t">Arm position and elbow angle</span></li>
@@ -174,6 +220,9 @@
   <script src="js/storage.js"></script>
   <script src="js/common.js"></script>
   <script src="js/pose.js"></script>
+  <script src="js/sketch.js"></script>
+  <script src="js/areas.js"></script>
+  <script src="js/doodles.js"></script>
   <script src="js/launch.js"></script>
 </body>
 </html>

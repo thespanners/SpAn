@@ -60,22 +60,22 @@
   function createFigure(svg, opts) {
     const showLabels = !opts || opts.labels !== false;
     svg.setAttribute("viewBox", "20 0 280 360");
-    svg.setAttribute("font-family", "Inter, sans-serif");
+    svg.setAttribute("font-family", "Barlow Condensed, Arial Narrow, sans-serif");
 
     svg.appendChild(el("line", { x1: 30, y1: 345, x2: 290, y2: 345, stroke: "#fff", "stroke-opacity": ".14", "stroke-width": 1.5 }));
-    const guide = el("line", { y1: 10, y2: 345, stroke: "#64d2ff", "stroke-opacity": ".35", "stroke-width": 1.2, "stroke-dasharray": "4 5" });
+    const guide = el("line", { y1: 10, y2: 345, stroke: "#ffb800", "stroke-opacity": ".35", "stroke-width": 1.2, "stroke-dasharray": "4 5" });
     svg.appendChild(guide);
 
     const bones = BONES.map(() => svg.appendChild(el("line", { stroke: "#f2f5fa", "stroke-opacity": ".9", "stroke-width": 4, "stroke-linecap": "round" })));
     const head = svg.appendChild(el("circle", { r: 20, fill: "none", stroke: "#f2f5fa", "stroke-opacity": ".9", "stroke-width": 4 }));
-    const elbowArc = svg.appendChild(el("path", { fill: "none", stroke: "#64d2ff", "stroke-width": 3.5, "stroke-linecap": "round" }));
-    const kneeArc = svg.appendChild(el("path", { fill: "none", stroke: "#64d2ff", "stroke-width": 3.5, "stroke-linecap": "round" }));
+    const elbowArc = svg.appendChild(el("path", { fill: "none", stroke: "#ffb800", "stroke-width": 3.5, "stroke-linecap": "round" }));
+    const kneeArc = svg.appendChild(el("path", { fill: "none", stroke: "#ffb800", "stroke-width": 3.5, "stroke-linecap": "round" }));
     const dots = {};
-    JOINTS.filter((j) => j !== "head").forEach((j) => { dots[j] = svg.appendChild(el("circle", { r: 5.5, fill: "#2997ff" })); });
+    JOINTS.filter((j) => j !== "head").forEach((j) => { dots[j] = svg.appendChild(el("circle", { r: 5.5, fill: "#ff5a1f" })); });
 
     // Angle labels are optional (the launch page shows the numbers in tiles instead).
-    const elbowTxt = el("text", { fill: "#64d2ff", "font-size": 13, "font-weight": 700 });
-    const kneeTxt = el("text", { fill: "#64d2ff", "font-size": 13, "font-weight": 700 });
+    const elbowTxt = el("text", { fill: "#ffb800", "font-size": 15, "font-weight": 700 });
+    const kneeTxt = el("text", { fill: "#ffb800", "font-size": 15, "font-weight": 700 });
     if (showLabels) { svg.appendChild(elbowTxt); svg.appendChild(kneeTxt); }
 
     function update(p) {

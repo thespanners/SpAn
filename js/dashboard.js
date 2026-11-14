@@ -3,7 +3,7 @@
   const S = window.SpAn;
   const user = S.Storage.getUser();
 
-  // Not signed up yet? Send them to the sign-up page.
+  // Not logged in? Send them to the join page.
   if (!user) { window.location.replace("signup.html"); return; }
 
   const $ = (id) => document.getElementById(id);
@@ -105,7 +105,7 @@
 
   // ----- Sign out -----
   $("signout").addEventListener("click", () => {
-    S.Storage.clear();
+    S.Storage.signOut();
     S.go("index.html");
   });
 })();

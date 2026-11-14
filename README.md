@@ -17,3 +17,10 @@ https://thespanners.github.io/SpAn/#about
 ## Affiliations
 CS Society (led by Seoha David Kim)\
 PE Society (led by Jianyuan Max Ma)
+
+## Accounts and storage
+There is no server or database yet. The Join page checks the email against profiles saved in the visitor's own browser (`localStorage`, see `js/storage.js`):
+* a known email logs in, a new email continues to the stats step and creates a profile
+* profiles stay saved between visits on the same browser, but are not shared between devices, and there is no password
+* to make accounts real and shared, replace the functions in `js/storage.js` with calls to a backend (for example Supabase or Firebase). Nothing else in the site reads user data directly.
+
